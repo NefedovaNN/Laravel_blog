@@ -7,6 +7,17 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
           
+                 <li class=" nav-item">
+          
+                  <a href="{{route('admin.post.index')}}" class="nav-link">
+          
+                    <i class="far fa-regular fa-clipboard nav-icon"></i>
+                    <p>
+                      Посты
+                    </p>
+                  </a>
+                </li>
+
             <li class=" nav-item">
           
               <a href="{{route('admin.category.index')}}" class="nav-link">
