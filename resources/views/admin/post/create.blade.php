@@ -32,13 +32,13 @@
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="title" value="{{old('title')}}" placeholder="Название поста">
                                 @error('title')
-                                    <p class="text-danger">Это поле должно быть заполнено!</p>
+                                    <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <textarea id="summernote" name="content"> {{old('content')}}</textarea>
                                 @error('content')
-                                <p class="text-danger">Это поле должно быть заполнено!</p>
+                                <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -52,6 +52,9 @@
                                   <span class="input-group-text">Загрузка</span>
                                 </div>
                               </div>
+                              @error('preview_image')
+                              <p class="text-danger">{{$message}}</p>
+                          @enderror
                             </div>
                             <div class="form-group w-50">
                               <label >Добавить изображение</label>
@@ -64,6 +67,39 @@
                                   <span class="input-group-text">Загрузка</span>
                                 </div>
                               </div>
+                              @error('main_image')
+                              <p class="text-danger">{{$message}}</p>
+                              @enderror
+                            </div>
+                            <div class="form-group">
+                              <label>Выберите категорию</label>
+                              <select name="category_id" class="form-control">
+                                @foreach ($categories as $category)
+                                <option value="{{$category->id}}"
+                                  {{$category->id == old('category_id') ? 'selected' : ''}}>
+                                  {{$category->title}}
+                                </option>
+                                @endforeach
+                           
+                              </select>
+                              @error('category_id')
+                              <p class="text-danger">{{$message}}</p>
+                              @enderror
+                            </div>
+                            <div class="form-group">
+                              <label>Тэги</label>
+                              <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите тэги" style="width: 100%;">
+                                @foreach ($tags as $tag)
+                                <option value="{{$tag->id}}"
+                                  {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? "selected" : ''}}>
+                                  {{$tag->title}}
+                                </option>
+                                   
+                               @endforeach
+                              </select>
+                              @error('tag_ids')
+                              <p class="text-danger">{{$message}}</p>
+                              @enderror
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Добавить">
