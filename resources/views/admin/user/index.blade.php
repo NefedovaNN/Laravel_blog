@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Тэги</h1>
+            <h1 class="m-0">Пользователи</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
-              <li class="breadcrumb-item active">Тэги</li>
+              <li class="breadcrumb-item active">Пользователи</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,7 +25,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-1 mb-3">
-            <a href="{{route('admin.tag.create')}}" class="btn btn-block btn-primary">Добавить</a>
+            <a href="{{route('admin.user.create')}}" class="btn btn-block btn-primary">Добавить</a>
            </div>
         </div>
             <div class="row">
@@ -39,19 +39,19 @@
                        
                         <tr>
                           <th>ID</th>
-                          <th>Название</th>
+                          <th>Имя</th>
                           <th colspan="3" class="text-center">Действия</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($tags as $tag)
-                        <tr>
-                        <td>{{$tag->id}}</td>
-                        <td>{{$tag->title}}</td>
-                        <td><a href="{{route('admin.tag.show', $tag->id)}}"><i class="far fa-eye"></i></a></td>
-                        <td><a href="{{route('admin.tag.edit', $tag->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                       @foreach ($users as $user)
+                       <tr>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td><a href="{{route('admin.user.show', $user->id)}}"><i class="far fa-eye"></i></a></td>
+                        <td><a href="{{route('admin.user.edit', $user->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                         <td>
-                          <form action="{{route('admin.tag.delete', $tag->id)}}" method = "POST">
+                          <form action="{{route('admin.user.delete', $user->id)}}" method = "POST">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn "><i class="fas fa-trash text-danger"></i></button>

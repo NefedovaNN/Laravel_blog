@@ -6,9 +6,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-1">{{$post->title}} </h1>
-                        <a href="{{route('admin.post.edit', $post->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
-                        <form action="{{route('admin.post.delete', $post->id)}}" method = "POST">
+                        <h1 class="m-0 mr-1">{{$user->name}} </h1>
+                        <a href="{{route('admin.user.edit', $user->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
+                        <form action="{{route('admin.user.delete', $user->id)}}" method = "POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn "><i class="fas fa-trash text-danger"></i></button>
@@ -17,8 +17,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
-                          <li class="breadcrumb-item"><a href="{{route('admin.post.index')}}">Посты</a></li>
-                            <li class="breadcrumb-item active">{{$post->title}} </li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">Пользователи</a></li>
+                            <li class="breadcrumb-item active">{{ $user->name }}</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -42,12 +42,12 @@
                                     <tbody>
                                         <tr>
                                             <td>ID</td>
-                                            <td>{{ $post->id}}</td>
+                                            <td>{{ $user->id}}</td>
                                             
                                         </tr>
                                         <tr>
-                                          <td>Название</td>
-                                          <td>{{ $post->title }}</td>
+                                          <td>Имя</td>
+                                          <td>{{ $user->name }}</td>
                                           
                                       </tr>
                                     </tbody>
