@@ -18,6 +18,21 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController');
 });
 
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
+    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
+        Route::get('/', 'IndexController')->name('personal.liked.index');
+        Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+    });
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+        Route::get('/{post}/edit', 'EditController')->name('personal.comment.edit');
+        Route::patch('/{post}', 'UpdateController')->name('personal.comment.update');
+        Route::delete('/{post}', 'DeleteController')->name('personal.comment.delete');
+    });
+});
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('admin.main.index');
