@@ -26,8 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'preview_image' => 'nullable|file',
-            'main_image' => 'nullable|file',
+            'main_image' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'required|integer|exists:categories,id',
             'tag_ids' => 'nullable|array',
             'tag_ids*' => 'nullable|required|integer|exists:tags,id'
@@ -40,10 +39,11 @@ class UpdateRequest extends FormRequest
             'title.string' => 'Это поле должно соответствовать строчному типу',
             'content.required' => 'Это поле необходимо для заполнения',
             'content.string' => 'Это поле должно соответствовать строчному типу',
-            'preview_image.required' => 'Это поле необходимо для заполнения',
-            'preview_image.file' => 'Необходимо выбрать файл',
             'main_image.required' => 'Это поле необходимо для заполнения',
             'main_image.file' => 'Необходимо выбрать файл',
+            'main_image.image' => 'Файл должен быть изображением',
+            'main_image.mimes' => 'Допустимые форматы изображения: jpeg,png,jpg,gif,svg',
+            'main_image.max' => 'Превышен максимальный размер изображения',
             'category_id.required' => 'Это поле необходимо для заполнения',
             'category_id.integer' => 'ID категории должен быть целым числом',
             'category_id.exists' => 'ID категории должен быть в базе данных',
