@@ -13,7 +13,10 @@ class IndexController extends Controller
 {
    public function __invoke()
    {
+      $data = [];
+      $data['usersLikedCount'] = auth()->user()->likedPosts->count();
+      $data['usersComments'] = auth()->user()->comments->count();
       
-    return view('personal.main.index');
+    return view('personal.main.index', compact('data'));
    }
 }

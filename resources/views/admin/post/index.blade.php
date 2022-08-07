@@ -10,7 +10,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Главная</a></li>
+              <li class="breadcrumb-item"><a href="#">Админка</a></li>
               <li class="breadcrumb-item active">Посты</li>
             </ol>
           </div><!-- /.col -->
@@ -24,12 +24,12 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-1 mb-3">
+          <div class="col-2 mb-3">
             <a href="{{route('admin.post.create')}}" class="btn btn-block btn-primary">Добавить</a>
            </div>
         </div>
             <div class="row">
-              <div class="col-6 ">
+              <div class="col-10 ">
                 <div class="card">
                  
                   <!-- /.card-header -->

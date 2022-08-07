@@ -10,7 +10,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('personal.main.index')}}">Главная</a></li>
+              <li class="breadcrumb-item"><a href="{{route('personal.main.index')}}">Личный кабинет</a></li>
               <li class="breadcrumb-item active">Понравившиеся посты</li>
             </ol>
           </div><!-- /.col -->
@@ -25,7 +25,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           
-          <div class="col-6 ">
+          <div class="col-10 ">
             <div class="card">
              
               <!-- /.card-header -->
@@ -44,7 +44,7 @@
                    <tr>
                     <td>{{$post->id}}</td>
                     <td>{{$post->title}}</td>
-                    <td><a href="{{route('admin.post.show', $post->id)}}"><i class="far fa-eye"></i></a></td>
+                    <td><a href="{{route('post.show', $post->id)}}"><i class="far fa-eye"></i></a></td>
                   
                     <td>
                       <form action="{{route('personal.liked.delete', $post->id)}}" method = "POST">

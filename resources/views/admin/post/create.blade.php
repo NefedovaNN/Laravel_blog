@@ -10,7 +10,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                          <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
+                          <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Админка</a></li>
                           <li class="breadcrumb-item"><a href="{{route('admin.post.index')}}">Посты</a></li>
                             <li class="breadcrumb-item active">Добавление поста</li>
                         </ol>
@@ -42,21 +42,7 @@
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
-                            <div class="form-group w-50">
-                              <label >Добавить превью</label>
-                              <div class="input-group">
-                                <div class="custom-file">
-                                  <input type="file" name="preview_image" class="custom-file-input" >
-                                  <label class="custom-file-label">Выберите изображение</label>
-                                </div>
-                                <div class="input-group-append">
-                                  <span class="input-group-text">Загрузка</span>
-                                </div>
-                              </div>
-                              @error('preview_image')
-                              <p class="text-danger">{{$message}}</p>
-                          @enderror
-                            </div>
+                            
                             <div class="form-group w-50">
                               <label >Добавить изображение</label>
                               <div class="input-group">

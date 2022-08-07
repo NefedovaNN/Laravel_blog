@@ -7162,8 +7162,8 @@ a.text-dark:hover, a.text-dark:focus {
 .font-weight-medium {
   font-weight: 500; }
 
-.edica-header.edica-landing-header {
-  background-image: linear-gradient(90deg, #ffffff 0%, #ffffff 55%, #fff0e8 55%, #fff0e8 100%); }
+/* .edica-header.edica-landing-header {
+  background-image: linear-gradient(90deg, #ffffff 0%, #ffffff 55%, #fff0e8 55%, #fff0e8 100%); } */
   .edica-header.edica-landing-header .carousel-indicators {
     top: 0;
     left: auto;
@@ -7247,9 +7247,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .edica-footer {
   background-color: #191919;
-  padding-top: 200px;
-  margin-top: -93px;
-  padding-bottom: 56px;
+  padding: 50px;
+  height: 80px;
   color: #ffffff; }
   .edica-footer .footer-brand-wrapper {
     display: block;

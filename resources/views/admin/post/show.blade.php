@@ -16,9 +16,9 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Админка</a></li>
                           <li class="breadcrumb-item"><a href="{{route('admin.post.index')}}">Посты</a></li>
-                            <li class="breadcrumb-item active">{{$post->title}} </li>
+                          <li class="breadcrumb-item active">{{$post->title}} </li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -50,6 +50,19 @@
                                           <td>{{ $post->title }}</td>
                                           
                                       </tr>
+                                      <tr>
+                                        <td>Категории</td>
+                                        <td>{{ $post->category->title }}</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Тэги</td>
+                                        @foreach ($post->tags as $tag)
+                                        <td>{{ $tag->title}}</td>
+                                        @endforeach
+                                        
+                                        
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
